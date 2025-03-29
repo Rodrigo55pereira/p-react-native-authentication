@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, Platform } from "react-native";
 
 export default function App() {
   return (
-    <View style={s.container}>
+    <KeyboardAvoidingView style={s.container} behavior={Platform.OS === 'ios' ? 'padding': 'height'}>
       <Text style={s.title}>Login</Text>
       <TextInput placeholder="Email" style={s.input} />
       <TextInput placeholder="Senha" style={s.input} secureTextEntry />
@@ -16,7 +16,7 @@ export default function App() {
         <Text style={s.buttonText}>Entrar</Text>
       </Pressable>
       <StatusBar style="auto" />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
