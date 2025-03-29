@@ -1,11 +1,29 @@
 import { StatusBar } from "expo-status-bar";
-import { Pressable, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, Platform } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 
 export default function App() {
   return (
-    <KeyboardAvoidingView style={s.container} behavior={Platform.OS === 'ios' ? 'padding': 'height'}>
+    <KeyboardAvoidingView
+      style={s.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
       <Text style={s.title}>Login</Text>
-      <TextInput placeholder="Email" style={s.input} />
+      <TextInput
+        placeholder="Email"
+        style={s.input}
+        autoFocus
+        autoCapitalize="none"
+        keyboardType="email-address"
+        autoComplete="email"
+      />
       <TextInput placeholder="Senha" style={s.input} secureTextEntry />
       <Pressable
         onPress={() => {
@@ -42,11 +60,11 @@ const s = StyleSheet.create({
     backgroundColor: "#4353FD",
     padding: 15,
     borderRadius: 5,
-    alignItems: "center"
+    alignItems: "center",
   },
   buttonText: {
     color: "white",
     fontSize: 16,
     fontWeight: "600",
-  }
+  },
 });
