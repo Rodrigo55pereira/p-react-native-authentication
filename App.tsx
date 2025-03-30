@@ -1,14 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import {
-  Pressable,
   StyleSheet,
   Text,
-  TextInput,
-  View,
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
 import CustomInput from "./src/components/CustomInput";
+import CustomButton from "./src/components/CustomButton";
 
 export default function App() {
   return (
@@ -26,14 +24,13 @@ export default function App() {
         autoComplete="email"
       />
       <CustomInput placeholder="Senha" secureTextEntry />
-      <Pressable
+      <CustomButton
+        text="Entrar"
         onPress={() => {
           console.log("pressed");
         }}
-        style={s.button}
-      >
-        <Text style={s.buttonText}>Entrar</Text>
-      </Pressable>
+      />
+
       <StatusBar style="auto" />
     </KeyboardAvoidingView>
   );
@@ -49,18 +46,6 @@ const s = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    fontWeight: "600",
-  },
-
-  button: {
-    backgroundColor: "#0a0b19",
-    padding: 15,
-    borderRadius: 5,
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 16,
     fontWeight: "600",
   },
 });
