@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
+import CustomInput from "./src/components/CustomInput";
 
 export default function App() {
   return (
@@ -16,15 +17,15 @@ export default function App() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Text style={s.title}>Login</Text>
-      <TextInput
+
+      <CustomInput
         placeholder="Email"
-        style={s.input}
         autoFocus
         autoCapitalize="none"
         keyboardType="email-address"
         autoComplete="email"
       />
-      <TextInput placeholder="Senha" style={s.input} secureTextEntry />
+      <CustomInput placeholder="Senha" secureTextEntry />
       <Pressable
         onPress={() => {
           console.log("pressed");
@@ -50,14 +51,9 @@ const s = StyleSheet.create({
     fontSize: 25,
     fontWeight: "600",
   },
-  input: {
-    borderWidth: 1,
-    padding: 15,
-    borderRadius: 5,
-    borderColor: "#CCC",
-  },
+
   button: {
-    backgroundColor: "#4353FD",
+    backgroundColor: "#0a0b19",
     padding: 15,
     borderRadius: 5,
     alignItems: "center",
